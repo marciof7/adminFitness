@@ -1,5 +1,5 @@
-/media/msantos/305f40eb-c8f1-4a8f-90b7-4a3053c8f229/msantos/Workspace/AdminFitness/src/test/java/br/com/msantos/adminfitness/util/HibernateUtilTest.java
-/media/msantos/305f40eb-c8f1-4a8f-90b7-4a3053c8f229/msantos/Workspace/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/PessoaDAOTest.java
-/media/msantos/305f40eb-c8f1-4a8f-90b7-4a3053c8f229/msantos/Workspace/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/ClienteDAOTest.java
-/media/msantos/305f40eb-c8f1-4a8f-90b7-4a3053c8f229/msantos/Workspace/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/EstadoDAOTest.java
-/media/msantos/305f40eb-c8f1-4a8f-90b7-4a3053c8f229/msantos/Workspace/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/CidadeDAOTest.java
+/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/PessoaDAOTest.java
+/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/CidadeDAOTest.java
+/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/ClienteDAOTest.java
+/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/EstadoDAOTest.java
+/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/util/HibernateUtilTest.java

@@ -1,5 +1,5 @@
 br/com/msantos/adminfitness/util/HibernateUtilTest.class
-br/com/msantos/adminfitness/dao/PessoaDAOTest.class
 br/com/msantos/adminfitness/dao/CidadeDAOTest.class
+br/com/msantos/adminfitness/dao/PessoaDAOTest.class
 br/com/msantos/adminfitness/dao/EstadoDAOTest.class
 br/com/msantos/adminfitness/dao/ClienteDAOTest.class

@@ -1,0 +1,30 @@
+/* TOPO-LOGIN */
+
+.login-body{
+	position: relative;
+	padding-top: 0;
+	top: 20%;
+	background: url("../../resources/img/bg-logo.jpg");
+	background-size:100%; 
+}
+
+.login-body .login-panel .login-header{
+	background-color: #031634 !important;
+}
+
+body .ui-button {
+	background-color:  #031634 !important;
+}
+
+body .ui-inputfield.ui-state-focus{
+	border-color: #031634 !important;
+}
+
+body .md-inputfield input:focus ~ label, body .md-inputfield input.ui-state-filled ~ label, body .md-inputfield textarea:focus ~ label, body .md-inputfield textarea.ui-state-filled ~ label, body .md-inputfield .md-inputwrapper-focus ~ label, body .md-inputfield .md-inputwrapper-filled ~ label {
+	color: #031634 !important;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active{
+	border-color: #031634 !important;;
+    background-color: #031634 !important;
+}

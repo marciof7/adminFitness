@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="title">Exercícios</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="formListagem">
+			<p:panel header="Exercícios - Registros">
+				<p:dataTable emptyMessage="Nenhum registro encontrado."
+					paginator="true" id="tabela" value="#{exerciciosBean.listaExercicios}"
+					var="exercicio" rows="5">
+					<f:facet name="footer">
+						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
+							actionListener="#{exerciciosBean.novo}" update=":formCadastro:painel">
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+					</f:facet>
+					<p:column headerText="Nome" sortBy="#{exercicio.descricao}"
+						filterBy="#{exercicio.descricao}">
+						<h:outputText value="#{exercicio.descricao}" />
+					</p:column>
+					<p:column headerText="Tipo de Músculo" sortBy="#{exercicio.tipoMusculos.musculo}"
+						filterBy="#{exercicio.tipoMusculos.musculo}">
+						<h:outputText value="#{exercicio.tipoMusculos.musculo}" />
+					</p:column>
+					<p:column headerText="Opções">
+						<p:commandButton icon="ui-icon-pencil" title="Editar"
+							actionListener="#{exerciciosBean.editar}"
+							update=":mensagem :formCadastro:painel"
+							oncomplete="PF('dialogo').show();">
+							<f:attribute name="selecionado" value="#{exercicio}" />
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-trash" title="Excluir"
+							actionListener="#{exerciciosBean.excluir}"
+							update=":mensagem :formListagem:tabela">
+							<f:attribute name="selecionado" value="#{exercicio}" />
+							<p:confirm header="Confirmação"
+								message="Deseja excluir o exercício" icon="ui-icon-alert" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+				<p:confirmDialog global="true">
+					<p:commandButton type="button" value="Sim"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton type="button" value="Não"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:panel>
+		</h:form>
+
+		<p:dialog header="Exercícios - Cadastro" widgetVar="dialogo"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			showEffect="slide">
+			<h:form id="formCadastro">
+				<h:panelGrid columns="2" id="painel">
+					<p:outputLabel for="descricao" value="Descrição:" style="padding:0px;" />
+					<p:inputText id="descricao" maxlength="50" size="20"
+						value="#{exerciciosBean.exercicio.descricao}" required="true"
+						requiredMessage="O Campo 'Descrição' é obrigatório!" />
+
+					<p:outputLabel for="tipoMusculo" value="Tipo de Músculo" />
+					<p:selectOneMenu id="tipoMusculo" filter="true"
+						style="width:70px; min-width:170px !important;"
+						value="#{exerciciosBean.exercicio.tipoMusculos}"
+						converter="omnifaces.SelectItemsConverter" required="true"
+						requiredMessage="O Campo 'Tipo de Músculo' é obrigatório!">
+						<f:selectItem noSelectionOption="true"
+							itemLabel="Selecione um tipo de músculo" />
+						<f:selectItems value="#{exerciciosBean.tipoMusculos}" var="musculo"
+							itemValue="#{musculo}" itemLabel="#{musculo.musculo}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
+					<p:commandButton value="Salvar"
+						actionListener="#{exerciciosBean.salvar}"
+						update=":mensagem :formCadastro:painel :formListagem:tabela"
+						/>
+					<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+</html>

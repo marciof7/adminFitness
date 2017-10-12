@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<h:outputStylesheet library="fontAwesome/css" name="font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<h:outputStylesheet  library="css" name="theme.css" />
+<h:outputStylesheet  library="fontAwesome/css" name="font-awesome.css" />
+<h:outputStylesheet  library="css" name="components.css" />
+<h:outputScript library="jquery" name="jquery.js"/>
+<h:outputScript library="js" name="core.js"/>
+<h:outputScript library="js" name="components.js"/>
+<h:outputScript library="jquery" name="jquery-plugins.js" />
+<h:outputStylesheet library="charts" name="charts.css" />
+<h:outputScript library="charts" name="charts.js"/>
+<h:outputStylesheet library="schedule" name="schedule.css" />
+<h:outputScript library="moment" name="moment.js"/>
+<h:outputStylesheet library="css" name="nanoscroller.css" />
+<h:outputStylesheet library="css" name="animate.css" />
+<h:outputStylesheet library="css" name="ripple.css" />
+<h:outputStylesheet library="css" name="layout-blue.css" />
+<h:outputStylesheet library="css" name="dashboard.css" />
+<h:outputStylesheet library="css" name="form.css" />
+<h:outputStylesheet library="css" name="style.css" />
+<h:outputStylesheet library="inputswitch" name="inputswitch.css" />
+<h:outputStylesheet library="keyboard" name="keyboard.css" />
+<h:outputScript library="inputswitch" name="inputswitch.js"/>
+<h:outputScript library="keyboard" name="keyboard.js"/>
+<h:outputScript>
+			function fMasc(objeto,mascara) {
+				obj=objeto
+				masc=mascara
+				setTimeout("fMascEx()",1)
+			}
+			function fMascEx() {
+				obj.value=masc(obj.value)
+			}
+			function mTel(tel) {
+				tel=tel.replace(/\D/g,"")
+				tel=tel.replace(/^(\d)/,"($1")
+				tel=tel.replace(/(.{3})(\d)/,"$1)$2")
+				if(tel.length == 9) {
+					tel=tel.replace(/(.{1})$/,"-$1")
+				} else if (tel.length == 10) {
+					tel=tel.replace(/(.{2})$/,"-$1")
+				} else if (tel.length == 11) {
+					tel=tel.replace(/(.{3})$/,"-$1")
+				} else if (tel.length == 12) {
+					tel=tel.replace(/(.{4})$/,"-$1")
+				} else if (tel.length > 12) {
+					tel=tel.replace(/(.{4})$/,"-$1")
+				}
+				return tel;
+			}
+			function mCNPJ(cnpj){
+				cnpj=cnpj.replace(/\D/g,"")
+				cnpj=cnpj.replace(/^(\d{2})(\d)/,"$1.$2")
+				cnpj=cnpj.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3")
+				cnpj=cnpj.replace(/\.(\d{3})(\d)/,".$1/$2")
+				cnpj=cnpj.replace(/(\d{4})(\d)/,"$1-$2")
+				return cnpj
+			}
+			function mCPF(cpf){
+				cpf=cpf.replace(/\D/g,"")
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+				cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+				cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+				return cpf
+			}
+			function mCEP(cep){
+				cep=cep.replace(/\D/g,"")
+				cep=cep.replace(/^(\d{5})(\d)/,"$1-$2")
+				cep=cep.replace(/\-(\d{2})(\d)/,".$1-$2")
+				return cep
+			}
+			function mNum(num){
+				num=num.replace(/\D/g,"")
+				return num
+			}
+		</h:outputScript>
+<h:outputScript>
+    if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';PrimeFaces.settings.projectStage='Development';}
+</h:outputScript>
+<h:outputScript library="js" name="main.js"/>
+<title><ui:insert name="title">Dashboard</ui:insert></title>
+<h:outputScript library="js" name="nanoscroller.js"/>
+<h:outputScript library="js" name="layout.js"/>
+<h:outputScript library="js" name="ripple.js"/>
+<h:outputScript>
+               
+               function skinBar() {
+                   this.cfg.shadow = false;
+                   this.cfg.title = '';
+                   this.cfg.seriesColors = ['#64B5F6', '#FFD54F'];
+                   this.cfg.grid = {
+                       background: '#ffffff',
+                       borderColor: '#ffffff',
+                       gridLineColor: '#F5F5F5',
+                       shadow: false
+                   };
+                   this.cfg.axesDefaults = {
+                       borderWidth: 0.1,
+                       borderColor: 'bdbdbd',
+                       rendererOptions: {
+                           textColor: '#666F77'
+                       }
+                   };
+                   this.cfg.seriesDefaults = {
+                       shadow: false,
+                       lineWidth: 1,
+                       renderer: $.jqplot.BarRenderer,
+                       markerOptions: {
+                           shadow: false,
+                           size: 7,
+                           style: 'circle'
+                       }
+                   }
+               }
+               
+</h:outputScript>
+</h:head>
+
+<h:body class="main-body">
+	<div class="layout-wrapper">
+	
+		<ui:insert name="topo">
+			<ui:include src="/templates/topo.xhtml" />
+		</ui:insert>
+		
+		<ui:insert name="menu">
+			<ui:include src="/templates/menu.xhtml" />
+		</ui:insert>
+		
+		<div class="layout-main">
+			<div class="layout-main-content">
+				<div class="ui-g dashboard">
+					<div class="ui-g-12 ui-md-12 ui-lg-12 ">
+					<p:growl id="mensagem"/>
+						<ui:insert name="conteudo">
+							<ui:include src="/templates/conteudo.xhtml" />
+						</ui:insert>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<ui:insert name="rodape">
+			<ui:include src="/templates/rodape.xhtml" />
+		</ui:insert>
+	
+	</div>
+</h:body>
+
+</html>

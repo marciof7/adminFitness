@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="title">Aula</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form>
+			<p:panel header="Aula - Registros">
+				<p:dataTable emptyMessage="Nenhum registro encontrado."
+					paginator="true">
+					<f:facet name="footer">
+						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();" />
+					</f:facet>
+					<p:column headerText="Código">
+
+					</p:column>
+					<p:column headerText="Descrição">
+
+					</p:column>
+					<p:column headerText="Opções">
+
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+		</h:form>
+
+		<p:dialog header="Aula - Cadastro" widgetVar="dialogo"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)" showEffect="slide">
+			<h:form>
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Descrição:" style="padding:0px;"/>
+					<p:inputText maxlength="30" size="20" />
+				</h:panelGrid>
+				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
+					<p:commandButton value="Salvar" />
+					<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+</html>

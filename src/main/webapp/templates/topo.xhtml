@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<div class="topbar">
+		<div class="logo">
+			<a href="/barcelona/dashboard.xhtml"> <img id="j_idt15"
+				src="../resources/img/logo-mini.png" alt="" /></a>
+		</div>
+		<img id="j_idt17" src="../resources/img/logo-txt.png" alt=""
+			class="app-name" /> <a id="topbar-menu-button" href="#"> <i
+			class="fa fa-bars"></i>
+		</a>
+
+		<ul class="topbar-menu fadeInDown animated">
+			<li class="profile-item">
+				<a href="#"> 
+					<i class=" topbar-icon fa fa-fw fa-black-tie	
+						 "></i>
+					<div class="profile-info">
+						<span class="topbar-item-name profile-name" style="text-transform: uppercase; font-weight: bold; margin-top: -8px;">Supervisor</span>
+					</div>
+			</a></li>
+			<li class="profile-item"><a href="#">
+			<i class="fa fa-user-circle-o fa-lg"></i>
+					<div class="profile-info">
+						<span class="topbar-item-name profile-name"
+							style="text-transform: uppercase; position: relative; top: -4px;">Usuário Logado</span>
+					</div>
+			</a>
+				
+				<ul class="animated">
+					<div class="pointer"></div>
+					<li role="menuitem"><a href="#"> <i
+							class="fa fa-fw fa-user fa-txt"></i> <span>Meus Dados</span>
+					</a></li>
+					<li role="menuitem"><a href="#"> <i
+							class="fa fa-fw fa-lock"></i> <span>Alterar Senha</span>
+					</a></li>
+				</ul></li>
+
+			<li><a href="#" title="Sair"> <i class="topbar-icon fa fa-fw fa-sign-out"></i>
+					<span class="topbar-item-name profile-name">Sair</span>
+			</a></li>
+		</ul>
+	</div>
+
+</ui:composition>
+</html>

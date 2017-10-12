@@ -1,0 +1,39 @@
+@CHARSET "utf-8";
+.container {
+	margin: 0 auto;
+	width: 960px;
+}
+body{
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	margin: 0px;	
+}
+
+.logo {
+	max-width: 200px;
+	max-height: 150px;
+	width: auto;
+	height: auto;
+}
+
+header{
+	padding: 5px 0px;
+	margin-bottom: 20px;
+	height: 80px;
+	background-color: #87CEEB;
+	color: #fff;
+	box-shadow: 0px 2px 2px #ccc;	
+}
+header > div{
+	margin-left: 10px;
+}
+
+#conteudo{
+	padding: 0px 8px;
+}
+
+footer{
+	padding: 0px 8px;
+	margin-bottom: 10px;
+}

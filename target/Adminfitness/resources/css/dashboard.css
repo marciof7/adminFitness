@@ -1,0 +1,48 @@
+/* TOPO */
+.layout-wrapper .topbar {
+	background-color: #031634 !important;
+}
+/* ICONES-MENU */
+.layout-wrapper .layout-sidebar .layout-tabmenu .layout-tabmenu-nav li.active-item a {
+	color: #031634 !important;
+}
+
+/* BORDA-MENU */
+.layout-wrapper .layout-sidebar .layout-tabmenu .layout-tabmenu-nav li.active-item {
+    border-left: 4px solid #031634 !important;
+}
+
+span.title {
+    color: #031634 !important;
+    text-transform: uppercase;
+}
+
+.layout-wrapper .layout-sidebar .layout-tabmenu .layout-tabmenu-contents .layout-tabmenu-content a {
+    color: #031634 !important;
+}
+
+/* ANIMAÇÃO-MENU */
+.layout-wrapper .layout-sidebar .layout-tabmenu .layout-tabmenu-contents .layout-tabmenu-content .layout-submenu-content .navigation-menu li a:hover {
+	background-color: #031634 !important;
+	color:#fff !important;
+}
+	
+/* PERFIL */
+/* ANIMAÇÂO-MENU-PERFIL */
+.layout-wrapper .topbar .topbar-menu > li > ul a:hover {
+	background-color: #031634 !important;
+	color:#fff;
+}
+
+.layout-wrapper .topbar .topbar-menu > li.profile-item .profile-info{
+	max-width: 160px !important;
+	font-weight: bold;
+}
+
+i.topbar-icon.fa.fa-fw.fa-tasks{
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+.layout-wrapper .topbar .topbar-menu > li.profile-item {
+    margin-right: 30px;

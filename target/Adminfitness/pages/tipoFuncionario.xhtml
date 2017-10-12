@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="title">Tipos de Funcionários</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="formListagem">
+			<p:panel header="Tipos de Funcionários - Registros">
+				<p:dataTable emptyMessage="Nenhum registro encontrado."
+					paginator="true" id="tabela"
+					value="#{tipoFuncionarioBean.tipoFuncionarios}"
+					var="tipoFuncionario" rows="5">
+					<f:facet name="footer">
+						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
+							actionListener="#{tipoFuncionarioBean.novo}"
+							update=":formCadastro:painel">
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+					</f:facet>
+					<p:column headerText="Código">
+						<h:outputText
+							value="#{tipoFuncionario.codigo}" />
+					</p:column>
+					<p:column headerText="Descrição">
+						<h:outputText
+							value="#{tipoFuncionario.descricao}" />
+					</p:column>
+					<p:column headerText="Opções">
+						<p:commandButton icon="ui-icon-pencil" title="Editar"
+							actionListener="#{tipoFuncionarioBean.editar}"
+							update=":mensagem :formCadastro:painel"
+							oncomplete="PF('dialogo').show();">
+							<f:attribute name="selecionado" value="#{tipoFuncionario}" />
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-trash" title="Excluir"
+							actionListener="#{tipoFuncionarioBean.excluir}"
+							update=":mensagem :formListagem:tabela">
+							<f:attribute name="selecionado" value="#{tipoFuncionario}" />
+							<p:confirm header="Confirmação"
+								message="Deseja excluir o tipo de funcionário?"
+								icon="ui-icon-alert" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+				<p:confirmDialog global="true">
+					<p:commandButton type="button" value="Sim"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton type="button" value="Não"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+
+			</p:panel>
+		</h:form>
+
+		<p:dialog header="Tipos de Funcionários  - Cadastro"
+			widgetVar="dialogo" draggable="false" resizable="false" modal="true"
+			appendTo="@(body)" showEffect="slide">
+			<h:form id="formCadastro">
+				<h:panelGrid columns="2" id="painel">
+					<p:outputLabel value="Descrição:" for="descricao" />
+					<p:inputText id="descricao" maxlength="50" size="20"
+						value="#{tipoFuncionarioBean.tipoFuncionario.descricao}" required="true"
+						requiredMessage="O Campo 'Descrição' é obrigatório!" />
+				</h:panelGrid>
+				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
+					<p:commandButton value="Salvar"
+							actionListener="#{tipoFuncionarioBean.salvar}"
+							update=":mensagem :formCadastro:painel :formListagem:tabela"
+							oncomplete="PF('dialogo').hide();" />
+					<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+</html>

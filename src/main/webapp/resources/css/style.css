@@ -1,0 +1,207 @@
+@media screen(max-width: 1024px;){
+        .layout-wrapper .topbar .topbar-menu.topbar-menu-visible{
+            visibility: hidden !important;
+        }
+}
+
+body .ui-inputfield.ui-state-focus{
+	box-shadow: none !important;
+}
+
+.ui-icon .ui-icon-closethick{
+	color: #fff !important;
+}
+
+.layout-wrapper .topbar .topbar-menu {
+    display: flex !important;
+    flex-wrap: wrap;
+    position: relative;
+    top: 0;
+    align-items: flex-end;
+    list-style: none;
+}
+
+/* MINI-LOGO */
+.layout-wrapper .topbar .logo img{
+	width: 60px;
+	margin-top: -1px;
+}
+
+/* LOGO-TEXTO */
+.layout-wrapper .topbar .app-name{
+	height: auto;
+	margin-left: 0px;
+	
+}
+
+.layout-wrapper .topbar .topbar-menu > li > a{
+	color: #fff !important;
+}
+
+.layout-wrapper .topbar .topbar-menu > li > ul{
+	top: 40px !important;
+    right: -40px;
+    width: 200px;
+}
+
+i.fa.fa-user-circle-o.fa-lg {
+    font-size: 25px;
+    position: relative;
+    top: -5px;
+}
+
+/* Menssagens */
+.ui-growl-item{
+	
+}
+
+.ui-widget-header{
+	background: none;
+	background: none;
+	background: none;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	background: none;
+	background: none;	
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield{
+	box-shadow: none;
+}
+
+.ui-inputfield.ui-state-focus, .ui-widget-content ..ui-inputfield.ui-state-focus{
+	box-shadow: none !important;
+}
+
+button{
+	height: 35px !important;
+	border-radius: 4px !important;
+}
+
+button span{
+	color: #fff;
+	font-weight: normal;
+}
+
+button span.ui-icon{
+	size: 30px;
+	font-size: 30px;
+}
+
+.ui-icon-closethick:before{
+	content: "";
+}
+
+/* MENSSAGENS */
+body .ui-growl{
+	top: 10px !important;
+}
+
+.ui-growl-title {
+    font-weight: bold;
+    padding: 0 0 7px 0;
+    display: block;
+    position: relative;
+    top: 10px;
+    left: 15px;
+}
+
+/* DATA-TABLE */
+body .ui-paginator .ui-paginator-pages a.ui-state-active{
+	 color: #fff !important;
+    border: 1px solid #fff !important;
+    box-shadow: none;
+	
+}
+.ui-datatable-tablewrapper{
+	text-align: center;
+}
+
+body .ui-datatable thead th.ui-state-active, body .ui-datatable thead th.ui-state-highlight{
+	color: #4F4F4F !important;
+	border-color:transparent !important;
+	box-shadow: none !important;
+	background-color: #fff !important;
+}
+
+.ui-icon-carat-2-n-s:before, .ui-icon-search:before{
+	content: "" !important;
+}
+
+body .ui-datatable thead th.ui-state-active .ui-icon, body .ui-datatable thead th.ui-state-highlight .ui-icon {
+    color: #031634;
+    position: relative;
+    top: 3px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{
+	border-color: #031634 !important;
+}
+
+body .ui-datatable tbody tr td{
+	padding: 0px;
+}
+
+/* CAIXA-CONFIRMAÇÃO */
+.ui-icon-alert:before{
+	content: "" !important;
+}
+
+span.ui-icon.ui-confirm-dialog-severity.ui-icon-alert{
+	display: none !important;
+}
+
+.ui-icon-close:before, .ui-icon-check:before{
+	content: "" !important;
+}
+
+body .ui-dialog .ui-dialog-buttonpane, body .ui-dialog .ui-dialog-footer {
+    text-align: right;
+    border: 1px solid #031634;
+    margin: 0;
+    border-top: 0px;
+}
+
+.ui-dialog-content.ui-widget-content{
+	border-bottom: 0px !important;
+}
+
+.ui-dialog .ui-dialog-content{
+	border: 1px solid !important;
+}
+
+.ui-outputlabel .ui-outputlabel-rfi{
+	color: red;
+}
+
+/* CHECK-BOX */
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{
+	opacity: 100;
+}
+
+/* CAMPO-UPLOAD */
+body .ui-widget-header .ui-icon{
+	position: absolute !important;
+	top: 15px !important;
+	
+}
+body .ui-fileupload .ui-fileupload-buttonbar .ui-button .ui-icon{
+	color: #fff !important;
+}
+
+body .ui-button .ui-button-text{
+	color: #fff !important;
+	font-weight: normal;
+}
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon {
+    position: relative !important;
+    top: 1px !important;
+}
+
+.ui-fileupload-content.ui-widget-content.ui-corner-bottom{
+	display: none;
+	
+}
+
+
+

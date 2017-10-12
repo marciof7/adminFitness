@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="title">Clientes</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="formListagem">
+			<p:panel header="Clientes - Registros">
+				<p:dataTable emptyMessage="Nenhum registro encontrado."
+					paginator="true" id="tabela" value="#{clienteBean.clientes}"
+					var="cliente" rows="5">
+					<f:facet name="footer">
+						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
+							actionListener="#{clienteBean.novo}"
+							update=":formCadastro:painel1 :formCadastro:painel2 :formCadastro:painel3 :formCadastro:painel4 :formCadastro:painel5 :formCadastro:painel6">
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+					</f:facet>
+					<p:column headerText="Nome">
+						<h:outputText value="#{cliente.pessoa.nome}" />
+					</p:column>
+					<p:column headerText="CPF">
+						<h:outputText value="#{cliente.pessoa.cpf}" />
+					</p:column>
+					<p:column headerText="Data de Cadastro">
+						<h:outputText value="#{cliente.pessoa.dataCadastro}">
+							<f:convertDateTime locale="pt_BR" />
+						</h:outputText>
+					</p:column>
+					<p:column headerText="Ativo">
+						<p:selectBooleanCheckbox value="#{cliente.liberado}"
+							disabled="true" />
+					</p:column>
+					<p:column headerText="Telefone">
+						<h:outputText value="#{cliente.pessoa.telefone}" />
+					</p:column>
+					<p:column headerText="Opções">
+						<p:commandButton icon="ui-icon-pencil" title="Editar"
+							actionListener="#{clienteBean.editar}"
+							update=":mensagem :formCadastro:painel1 :formCadastro:painel2 :formCadastro:painel3 :formCadastro:painel4 :formCadastro:painel5 :formCadastro:painel6"
+							oncomplete="PF('dialogo').show();">
+							<f:attribute name="selecionado" value="#{cliente}" />
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-trash" title="Excluir"
+							actionListener="#{clienteBean.excluir}"
+							update=":mensagem :formListagem:tabela">
+							<f:attribute name="selecionado" value="#{cliente}" />
+							<p:confirm header="Confirmação"
+								message="Deseja excluir o cliente?" icon="ui-icon-alert" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+				<p:confirmDialog global="true">
+					<p:commandButton type="button" value="Sim"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton type="button" value="Não"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+
+			</p:panel>
+		</h:form>
+
+		<p:dialog header="Clientes - Cadastro" widgetVar="dialogo"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			showEffect="slide">
+			<h:form id="formCadastro" enctype="multipart/form-data">
+				<h:panelGrid columns="4" id="painel1">
+					<p:outputLabel value="Nome:" for="nome" />
+					<p:inputText id="nome" maxlength="50" size="30"
+						value="#{clienteBean.pessoa.nome}" required="true"
+						requiredMessage="O Campo 'Nome' é obrigatório!" />
+
+					<p:outputLabel value="CPF:" for="cpf" />
+					<p:inputMask mask="999.999.999-99" placeholder="123.456.789-10"
+						id="cpf" maxlength="14" size="15"
+						value="#{clienteBean.pessoa.cpf}" required="true"
+						requiredMessage="O Campo 'CPF' é obrigatório!" />
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="4" id="painel2">
+					<p:outputLabel value="Data de Nascimento:" for="datanascimento" />
+					<p:calendar id="datanascimento" size="10"
+						style="text-align: center;"
+						value="#{clienteBean.pessoa.dataNascimento}" required="true"
+						requiredMessage="O Campo 'Data de Nascimento' é obrigatório!"
+						locale="pt_BR" />
+
+
+					<p:outputLabel value="Sexo:" for="sexo" />
+					<p:selectOneRadio id="sexo" required="true"
+						requiredMessage="O campo 'Sexo' é obrigatório!"
+						value="#{clienteBean.pessoa.sexo}">
+						<f:selectItem itemValue="M" itemLabel="Masculino" />
+						<f:selectItem itemValue="F" itemLabel="Feminino" />
+					</p:selectOneRadio>
+
+				</h:panelGrid>
+				<h:panelGrid columns="6" id="painel3">
+
+					<p:outputLabel for="estado" value="Estado:" />
+					<p:selectOneMenu id="estado" filter="true"
+						style="width:70px; min-width:170px !important;"
+						value="#{clienteBean.estado}"
+						converter="omnifaces.SelectItemsConverter" required="true"
+						requiredMessage="O Campo 'Estado' é obrigatório!">
+						<f:selectItem noSelectionOption="true"
+							itemLabel="Selecione um Estado" />
+						<f:selectItems value="#{clienteBean.estados}" var="estado"
+							itemValue="#{estado}" itemLabel="#{estado.nome}" />
+						<p:ajax listener="#{clienteBean.popular}"
+							update=":formCadastro:cidade" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Cidade:" style="margin-left:10px;"
+						for="cidade" />
+					<p:selectOneMenu id="cidade" filter="true"
+						style="width:70px; min-width:170px !important;"
+						value="#{clienteBean.pessoa.cidade}"
+						converter="omnifaces.SelectItemsConverter" required="true"
+						requiredMessage="O Campo 'Cidade' é obrigatório!">
+						<f:selectItem noSelectionOption="true"
+							itemLabel="Selecione uma cidade" />
+						<f:selectItems value="#{clienteBean.cidades}" var="cidade"
+							itemValue="#{cidade}" itemLabel="#{cidade.nome}" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Ativo:" style="margin-left:10px;" for="ativo" />
+					<p:selectBooleanCheckbox id="ativo"
+						value="#{clienteBean.cliente.liberado}" />
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="4" id="painel4">
+
+					<p:outputLabel value="Endereço:" for="endereco" />
+					<p:inputText id="endereco" maxlength="50" size="30"
+						value="#{clienteBean.pessoa.endereco}" required="true"
+						requiredMessage="O Campo 'Endereço' é obrigatório!" />
+
+					<p:outputLabel value="CEP:" for="cep" />
+					<p:inputMask mask="99999-999" placeholder="12234-66" id="cep"
+						maxlength="8" size="10" value="#{clienteBean.pessoa.cep}"
+						required="true" requiredMessage="O Campo 'CEP' é obrigatório!" />
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="4" id="painel5">
+					<p:outputLabel value="Bairro:" for="bairro" />
+					<p:inputText id="bairro" maxlength="30" size="20"
+						value="#{clienteBean.pessoa.bairro}" required="true"
+						requiredMessage="O Campo 'Bairro' é obrigatório!" />
+
+					<p:outputLabel value="Complemento:" />
+					<p:inputText maxlength="30" size="20"
+						value="#{clienteBean.pessoa.complemento}" />
+
+				</h:panelGrid>
+
+				<h:panelGrid columns="4" id="painel6">
+
+					<p:outputLabel value="Email:" />
+					<p:inputText maxlength="40" size="30"
+						value="#{clienteBean.pessoa.email}" />
+
+					<p:outputLabel value="Telefone:" for="fone" />
+					<p:inputMask mask="(99)99999-9999" placeholder="(81)99999-9999"
+						id="fone" maxlength="14" size="10"
+						value="#{clienteBean.pessoa.telefone}" required="true"
+						requiredMessage="O Campo 'Telefone' é obrigatório!" />
+
+				</h:panelGrid>
+				<p:outputLabel value="Foto:" for="foto"/>
+				<p:fileUpload id="foto" mode="advanced"/>
+				
+
+				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
+					<p:commandButton value="Salvar"
+						actionListener="#{clienteBean.salvar}"
+						update=":mensagem :formListagem:tabela :formCadastro:painel1 :formCadastro:painel2 :formCadastro:painel3 :formCadastro:painel4 :formCadastro:painel5 :formCadastro:painel6 :formListagem:tabela" />
+					<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+</html>

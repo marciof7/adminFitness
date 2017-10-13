@@ -4,7 +4,7 @@
 	position: relative;
 	padding-top: 0;
 	top: 20%;
-	background: url("../../resources/img/bg-logo.jpg");
+	background: url("../../resources/img/bg-logo.png");
 	background-size:100%; 
 }
 
@@ -27,4 +27,11 @@ body .md-inputfield input:focus ~ label, body .md-inputfield input.ui-state-fill
 body .ui-chkbox .ui-chkbox-box.ui-state-active{
 	border-color: #031634 !important;;
     background-color: #031634 !important;
+}
+
+.login-body .login-panel .login-header img {
+    width: 90px !important;
+    position: absolute;
+    top: 14px;
+    right: 30px;
 }

@@ -129,7 +129,10 @@ body .ui-widget-content {
 }
 
 label {
-    padding: 0  5px 0 10px;
+    padding: 0  5px 0 0;
+}
+.fa-fw{
+	width: 1em !important;
 }
 
 body .ui-selectonemenu .ui-selectonemenu-label.ui-inputfield{

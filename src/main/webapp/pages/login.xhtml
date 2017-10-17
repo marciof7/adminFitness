@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<h:outputStylesheet library="css" name="theme.css" />
+	<link type="text/css" rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<h:outputStylesheet library="css" name="components.css" />
+	<h:outputScript library="jquery" name="jquery.js" />
+	<h:outputScript library="js" name="core.js" />
+	<h:outputScript library="js" name="components.js" />
+	<h:outputScript library="jquery" name="jquery-plugins.js" />
+	<h:outputStylesheet library="css" name="layout-blue.css" />
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<h:outputStylesheet library="css" name="ripple.css" />
+	<h:outputStylesheet library="css" name="login.css" />
+	<script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';PrimeFaces.settings.projectStage='Development';}</script>
+	<title>Login - AdminFitness</title>
+	<h:outputScript library="js" name="ripple.js"/>
+	<h:outputScript library="js" name="layout.js"/>
+</h:head>
+<body class="login-body">
+	<p:growl id="mensagem" />
+	<div class="login-panel ui-fluid">
+		<div class="ui-g">
+			<h:form>
+				<div class="ui-g-12 login-header">
+					<h1>LOGIN</h1>
+					<h2>Bem-vindo ao AdminFitness</h2>
+					<img id="j_idt9" src="../resources/img/logo-mini.png" alt="" />
+				</div>
+
+				<div class="ui-g-12">
+					<span class="md-inputfield"> <p:inputMask mask="999.999.999-99" id="usuario"
+							name="usuario" type="text"
+							class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all"
+							required="true"
+							requiredMessage="O campo 'usuário' é obrigatório!"
+							value="#{autenticacaoBean.usuario.pessoa.cpf}"/> <script
+							id="usuario_s" type="text/javascript">PrimeFaces.cw("InputText","widget_usuario",{id:"usuario"});</script>
+						<label for="usuario">Usuário</label></span>
+				</div>
+				<div class="ui-g-12">
+					<span class="md-inputfield"> <p:password id="senha"
+							name="senha" type="password"
+							class="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all"
+							required="true" requiredMessage="O campo 'senha' é obrigatório!"
+							value="#{autenticacaoBean.usuario.senha}" /> <script id="senha_s"
+							type="text/javascript">$(function(){PrimeFaces.cw("Password","widget_senha",{id:"senha"});});</script>
+						<label for="senha">Senha</label>
+					</span>
+				</div>
+				<div class="ui-g-12 chkbox-container">
+					<div id="remember-me" class="ui-chkbox ui-widget">
+						<div class="ui-helper-hidden-accessible">
+							<input id="remember-me_input" name="remember-me_input"
+								type="checkbox" autocomplete="off" aria-checked="false" />
+						</div>
+						<div
+							class="ui-chkbox-box ui-widget ui-corner-all ui-state-default">
+							<span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span>
+						</div>
+					</div>
+					<script id="remember-me_s" type="text/javascript">PrimeFaces.cw("SelectBooleanCheckbox","widget_remember_me",{id:"remember-me"});</script>
+					<label id="j_idt19" class="ui-outputlabel ui-widget">Lembrar-me</label>
+				</div>
+				<div class="ui-g-12 button-container">
+					<p:commandButton id="entrar"
+						class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+						update=":mensagem" value="Entrar"
+						actionListener="#{autenticacaoBean.autenticar}">
+					</p:commandButton>
+				</div>
+			</h:form>
+		</div>
+	</div>
+</body>
+
+</html>

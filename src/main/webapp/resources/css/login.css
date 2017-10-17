@@ -4,7 +4,7 @@
 	position: relative;
 	padding-top: 0;
 	top: 20%;
-	background: url("../../resources/img/bg-logo.png");
+	background: url("../resources/img/bg-logo.png");
 	background-size:100%; 
 }
 
@@ -34,4 +34,19 @@ body .ui-chkbox .ui-chkbox-box.ui-state-active{
     position: absolute;
     top: 14px;
     right: 30px;
+}
+
+/* INPUTS */
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield{
+	-webkit-box-shadow: none !important;
+	box-shadow: none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	background: transparent !important;
+	text-shadow: none;
+}
+
+body .ui-button .ui-button-text{
+	margin-left: -25px;
 }

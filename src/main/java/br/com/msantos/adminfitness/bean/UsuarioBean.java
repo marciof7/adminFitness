@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.omnifaces.util.Messages;
 
 import br.com.msantos.adminfitness.dao.PessoaDAO;
@@ -120,6 +121,10 @@ public class UsuarioBean implements GenericBean, Serializable {
 			String confirmaSenha = usuario.getConfirmaSenha();
 			
 			if(validaSenha(senha, confirmaSenha) == true) {
+				SimpleHash hash = new SimpleHash("md5", senha);
+				
+				usuario.setSenha(hash.toHex());
+				
 				usuarioDAO.merge(usuario);
 				novo();
 				usuarios = usuarioDAO.listar();

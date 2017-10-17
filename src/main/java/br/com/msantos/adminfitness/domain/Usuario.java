@@ -13,6 +13,9 @@ public class Usuario extends GenericDomain {
 	private String senha;
 	
 	@Transient
+	private String senhaSemCriptografia;
+	
+	@Transient
 	private String confirmaSenha;
 	
 	@OneToOne
@@ -32,6 +35,14 @@ public class Usuario extends GenericDomain {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public String getSenhaSemCriptografia() {
+		return senhaSemCriptografia;
+	}
+	
+	public void setSenhaSemCriptografia(String senhaSemCriptografia) {
+		this.senhaSemCriptografia = senhaSemCriptografia;
 	}
 	
 	public String getConfirmaSenha() {

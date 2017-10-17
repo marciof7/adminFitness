@@ -7,12 +7,12 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/templates/template.xhtml">
-	<ui:define name="title">Tipos de Funcionários</ui:define>
+	<ui:define name="title">Tipo de Usuários</ui:define>
 
 	<ui:define name="conteudo">
 
 		<h:form id="formListagem">
-			<p:panel header="Tipos de Funcionários - Registros">
+			<p:panel header="Tipo de Usuários - Registros">
 				<p:dataTable emptyMessage="Nenhum registro encontrado."
 					paginator="true" id="tabela"
 					value="#{tipoFuncionarioBean.tipoFuncionarios}"
@@ -63,9 +63,9 @@
 			</p:panel>
 		</h:form>
 
-		<p:dialog header="Tipos de Funcionários  - Cadastro"
+		<p:dialog header="Tipo de Usuários  - Cadastro"
 			widgetVar="dialogo" draggable="false" resizable="false" modal="true"
-			appendTo="@(body)" showEffect="slide">
+			appendTo="@(body)" showEffect="slide" responsive="true">
 			<h:form id="formCadastro">
 				<h:panelGrid columns="2" id="painel">
 					<p:outputLabel value="Descrição:" for="descricao" />

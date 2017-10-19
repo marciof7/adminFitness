@@ -12,10 +12,10 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.omnifaces.util.Messages;
 
 import br.com.msantos.adminfitness.dao.PessoaDAO;
-import br.com.msantos.adminfitness.dao.TipoFuncionarioDAO;
+import br.com.msantos.adminfitness.dao.TipoUsuarioDAO;
 import br.com.msantos.adminfitness.dao.UsuarioDAO;
 import br.com.msantos.adminfitness.domain.Pessoa;
-import br.com.msantos.adminfitness.domain.TipoFuncionario;
+import br.com.msantos.adminfitness.domain.TipoUsuario;
 import br.com.msantos.adminfitness.domain.Usuario;
 
 @SuppressWarnings("serial")
@@ -26,8 +26,8 @@ public class UsuarioBean implements GenericBean, Serializable {
 	private Usuario usuario;
 	private List<Usuario> usuarios;
 	private List<Pessoa> pessoas;
-	private List<TipoFuncionario> TipoFuncionarios;
-	private TipoFuncionario tipoFuncionario;
+	private List<TipoUsuario> TipoFuncionarios;
+	private TipoUsuario tipoFuncionario;
 	private Pessoa pessoa;
 
 	public Usuario getUsuario() {
@@ -54,19 +54,19 @@ public class UsuarioBean implements GenericBean, Serializable {
 		this.pessoas = pessoas;
 	}
 
-	public List<TipoFuncionario> getTipoFuncionarios() {
+	public List<TipoUsuario> getTipoFuncionarios() {
 		return TipoFuncionarios;
 	}
 
-	public void setTipoFuncionarios(List<TipoFuncionario> tipoFuncionarios) {
+	public void setTipoFuncionarios(List<TipoUsuario> tipoFuncionarios) {
 		TipoFuncionarios = tipoFuncionarios;
 	}
 	
-	public TipoFuncionario getTipoFuncionario() {
+	public TipoUsuario getTipoFuncionario() {
 		return tipoFuncionario;
 	}
 	
-	public void setTipoFuncionario(TipoFuncionario tipoFuncionario) {
+	public void setTipoFuncionario(TipoUsuario tipoFuncionario) {
 		this.tipoFuncionario = tipoFuncionario;
 	}
 	
@@ -103,7 +103,7 @@ public class UsuarioBean implements GenericBean, Serializable {
 			PessoaDAO pessoaDAO = new PessoaDAO();
 			pessoas = pessoaDAO.listarOrdenado("nome");
 
-			TipoFuncionarioDAO tipoFuncionarioDAO = new TipoFuncionarioDAO();
+			TipoUsuarioDAO tipoFuncionarioDAO = new TipoUsuarioDAO();
 			TipoFuncionarios = tipoFuncionarioDAO.listarOrdenado("descricao");
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Erro ao tentar gerar um usuário!");
@@ -160,7 +160,7 @@ public class UsuarioBean implements GenericBean, Serializable {
 		pessoa = pessoaDAO.buscar(CodigoPessoa);
 		pessoas = pessoaDAO.listar();
 		
-		TipoFuncionarioDAO tipoFuncionarioDAO = new TipoFuncionarioDAO();
+		TipoUsuarioDAO tipoFuncionarioDAO = new TipoUsuarioDAO();
 		TipoFuncionarios = tipoFuncionarioDAO.listar();
 		
 		
@@ -188,6 +188,7 @@ public class UsuarioBean implements GenericBean, Serializable {
 		
 	}
 	
+	/* show and hide elements */
 	private boolean Element = true;  
 	  
 	public boolean getElement(){  

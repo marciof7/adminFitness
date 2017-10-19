@@ -5,17 +5,17 @@ import javax.persistence.Entity;
 
 @SuppressWarnings("serial")
 @Entity
-public class TipoMusculos extends GenericDomain{
+public class TipoUsuario extends GenericDomain{
 	
 	@Column(length = 50, nullable = false)
-	private String musculo;
+	private String descricao;
 
-	public String getMusculo() {
-		return musculo;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setMusculo(String musculo) {
-		this.musculo = musculo;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	
 	

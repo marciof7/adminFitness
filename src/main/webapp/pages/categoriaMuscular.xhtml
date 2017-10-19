@@ -8,42 +8,42 @@
 
 <ui:composition template="/templates/template.xhtml">
 
-	<ui:define name="title">Tipo de Músculos</ui:define>
+	<ui:define name="title">Catergoria Muscular</ui:define>
 
 	<ui:define name="conteudo">
 
 		<h:form id="formListagem">
-			<p:panel header="Tipo de Músculos - Registros">
+			<p:panel header="Catergoria Muscular - Registros">
 				<p:dataTable emptyMessage="Nenhum registro encontrado." id="tabela"
-					paginator="true" value="#{tipoMusculosBean.tipoMusculos}"
-					var="musculo" rows="5">
+					paginator="true" value="#{categoriaMuscularBean.listaCategorias}"
+					var="categoriaMuscular" rows="5">
 					<f:facet name="footer">
 						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
-							actionListener="#{tipoMusculosBean.novo}"
+							actionListener="#{categoriaMuscularBean.novo}"
 							update=":formCadastro:painel">
 							<f:actionListener
 								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
 						</p:commandButton>
 					</f:facet>
 					<p:column headerText="Código">
-						<h:outputText value="#{musculo.codigo}" style="text-align:center;" />
+						<h:outputText value="#{categoriaMuscular.codigo}" style="text-align:center;" />
 					</p:column>
-					<p:column headerText="Músculo" sortBy="#{musculo.musculo}">
-						<h:outputText value="#{musculo.musculo}" />
+					<p:column headerText="Descrição" sortBy="#{categoriaMuscular.descricao}">
+						<h:outputText value="#{categoriaMuscular.descricao}" />
 					</p:column>
 					<p:column headerText="Opções">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
-							actionListener="#{tipoMusculosBean.editar}"
-							update=":mensagem :formCadastro:painel"
+							actionListener="#{categoriaMuscularBean.editar}"
+							update=":mensagem :formCadastro:painel :formListagem:tabela"
 							oncomplete="PF('dialogo').show();">
-							<f:attribute name="selecionado" value="#{musculo}" />
+							<f:attribute name="selecionado" value="#{categoriaMuscular}" />
 							<f:actionListener
 								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
 						</p:commandButton>
 						<p:commandButton icon="ui-icon-trash" title="Excluir"
-							actionListener="#{tipoMusculosBean.excluir}"
+							actionListener="#{categoriaMuscularBean.excluir}"
 							update=":mensagem :formListagem:tabela">
-							<f:attribute name="selecionado" value="#{musculo}" />
+							<f:attribute name="selecionado" value="#{categoriaMuscular}" />
 							<p:confirm header="Confirmação"
 								message="Deseja excluir o músculo" icon="ui-icon-alert" />
 						</p:commandButton>
@@ -59,20 +59,20 @@
 			</p:panel>
 		</h:form>
 
-		<p:dialog header="Tipo de Músculos - Cadastro" widgetVar="dialogo"
+		<p:dialog header="Catergoria Muscular - Cadastro" widgetVar="dialogo"
 			draggable="false" resizable="false" modal="true" appendTo="@(body)"
-			showEffect="slide">
+			showEffect="slide" responsive="true">
 			<h:form id="formCadastro">
 				<h:panelGrid columns="2" id="painel">
-					<p:outputLabel for="musculo" value="Músculo" />
+					<p:outputLabel for="musculo" value="Descrição:" />
 					<p:inputText id="musculo" maxlength="50" size="20"
-						value="#{tipoMusculosBean.tipoMusculo.musculo}" required="true"
+						value="#{categoriaMuscularBean.categoriaMuscular.descricao}" required="true"
 						requiredMessage="O Campo 'Músculo' é obrigatório!" />
 				</h:panelGrid>
 				<div class="btn-opcoes">
 					<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
 						<p:commandButton value="Salvar"
-							actionListener="#{tipoMusculosBean.salvar}"
+							actionListener="#{categoriaMuscularBean.salvar}"
 							update=":mensagem :formCadastro:painel :formListagem:tabela"
 							oncomplete="PF('dialogo').hide();" />
 						<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />

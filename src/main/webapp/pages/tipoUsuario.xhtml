@@ -15,11 +15,11 @@
 			<p:panel header="Tipo de Usuários - Registros">
 				<p:dataTable emptyMessage="Nenhum registro encontrado."
 					paginator="true" id="tabela"
-					value="#{tipoFuncionarioBean.tipoFuncionarios}"
-					var="tipoFuncionario" rows="5">
+					value="#{tipoUsuarioBean.listaTipoUsuarios}"
+					var="tipoUsuario" rows="5">
 					<f:facet name="footer">
 						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
-							actionListener="#{tipoFuncionarioBean.novo}"
+							actionListener="#{tipoUsuarioBean.novo}"
 							update=":formCadastro:painel">
 							<f:actionListener
 								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
@@ -27,25 +27,25 @@
 					</f:facet>
 					<p:column headerText="Código">
 						<h:outputText
-							value="#{tipoFuncionario.codigo}" />
+							value="#{tipoUsuario.codigo}" />
 					</p:column>
 					<p:column headerText="Descrição">
 						<h:outputText
-							value="#{tipoFuncionario.descricao}" />
+							value="#{tipoUsuario.descricao}" />
 					</p:column>
 					<p:column headerText="Opções">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
-							actionListener="#{tipoFuncionarioBean.editar}"
+							actionListener="#{tipoUsuarioBean.editar}"
 							update=":mensagem :formCadastro:painel"
 							oncomplete="PF('dialogo').show();">
-							<f:attribute name="selecionado" value="#{tipoFuncionario}" />
+							<f:attribute name="selecionado" value="#{tipoUsuario}" />
 							<f:actionListener
 								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
 						</p:commandButton>
 						<p:commandButton icon="ui-icon-trash" title="Excluir"
-							actionListener="#{tipoFuncionarioBean.excluir}"
+							actionListener="#{tipoUsuarioBean.excluir}"
 							update=":mensagem :formListagem:tabela">
-							<f:attribute name="selecionado" value="#{tipoFuncionario}" />
+							<f:attribute name="selecionado" value="#{tipoUsuario}" />
 							<p:confirm header="Confirmação"
 								message="Deseja excluir o tipo de funcionário?"
 								icon="ui-icon-alert" />
@@ -70,12 +70,12 @@
 				<h:panelGrid columns="2" id="painel">
 					<p:outputLabel value="Descrição:" for="descricao" />
 					<p:inputText id="descricao" maxlength="50" size="20"
-						value="#{tipoFuncionarioBean.tipoFuncionario.descricao}" required="true"
+						value="#{tipoUsuarioBean.tipoUsuario.descricao}" required="true"
 						requiredMessage="O Campo 'Descrição' é obrigatório!" />
 				</h:panelGrid>
 				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
 					<p:commandButton value="Salvar"
-							actionListener="#{tipoFuncionarioBean.salvar}"
+							actionListener="#{tipoUsuarioBean.salvar}"
 							update=":mensagem :formCadastro:painel :formListagem:tabela"
 							oncomplete="PF('dialogo').hide();" />
 					<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />

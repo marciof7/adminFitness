@@ -20,7 +20,7 @@ public class Usuario extends GenericDomain {
 	
 	@OneToOne
 	@JoinColumn(nullable = false)
-	private TipoFuncionario tipo;
+	private TipoUsuario tipo;
 	
 	@Column(nullable = false)
 	private Boolean ativo;
@@ -54,11 +54,11 @@ public class Usuario extends GenericDomain {
 	}
 	
 
-	public TipoFuncionario getTipo() {
+	public TipoUsuario getTipo() {
 		return tipo;
 	}
 	
-	public void setTipo(TipoFuncionario tipo) {
+	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
 	}
 

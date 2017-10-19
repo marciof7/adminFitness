@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 
 @SuppressWarnings("serial")
 @Entity
-public class TipoFuncionario extends GenericDomain{
+public class CategoriaMuscular extends GenericDomain{
 	
 	@Column(length = 50, nullable = false)
 	private String descricao;

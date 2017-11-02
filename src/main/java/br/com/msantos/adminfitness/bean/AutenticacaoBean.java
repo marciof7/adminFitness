@@ -52,7 +52,7 @@ public class AutenticacaoBean {
 				return;
 			}
 			
-			Faces.redirect("http://localhost:8082/Adminfitness/pages/principal.xhtml");
+			Faces.redirect("/Adminfitness/pages/principal.xhtml");
 			
 		} catch (IOException erro) {
 			erro.printStackTrace();

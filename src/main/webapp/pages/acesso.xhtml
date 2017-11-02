@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="title">Acessos</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:form id="formListagem">
+			<p:panel header="Acessos - Registros">
+				<p:dataTable emptyMessage="Nenhum registro encontrado." id="tabela"
+					paginator="true" value="#{acessoBean.listaAcesso}" var="acesso"
+					rows="5">
+					<f:facet name="footer">
+						<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
+							actionListener="#{acessoBean.novo}" update=":formCadastro:painel">
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+					</f:facet>
+					<p:column headerText="Código">
+						<h:outputText value="#{acesso.codigo}" style="text-align:center;" />
+					</p:column>
+					<p:column headerText="Descrição:" sortBy="#{acesso.descricao}">
+						<h:outputText value="#{acesso.descricao}" />
+					</p:column>
+					<p:column headerText="Opções" styleClass="ui-table-width">
+						<p:commandButton icon="ui-icon-pencil" title="Editar"
+							actionListener="#{acessoBean.editar}"
+							update=":mensagem :formCadastro:painel"
+							oncomplete="PF('dialogo').show();">
+							<f:attribute name="selecionado" value="#{acesso}" />
+							<f:actionListener
+								type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" />
+						</p:commandButton>
+						<p:commandButton icon="ui-icon-trash" title="Excluir"
+							actionListener="#{acessoBean.excluir}"
+							update=":mensagem :formListagem:tabela">
+							<f:attribute name="selecionado" value="#{acesso}" />
+							<p:confirm header="Confirmação"
+								message="Deseja excluir o acesso?" icon="ui-icon-alert" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+				<p:confirmDialog global="true">
+					<p:commandButton type="button" value="Sim"
+						styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					<p:commandButton type="button" value="Não"
+						styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+				</p:confirmDialog>
+			</p:panel>
+		</h:form>
+
+		<p:dialog header="Acessos - Cadastro" widgetVar="dialogo"
+			draggable="false" resizable="false" modal="true" appendTo="@(body)"
+			showEffect="slide">
+			<h:form id="formCadastro">
+				<h:panelGrid columns="2" id="painel">
+					<p:outputLabel for="descricao" value="Descrição:" />
+					<p:inputText id="descricao" maxlength="50" size="20"
+						value="#{acessoBean.acesso.descricao}" required="true"
+						requiredMessage="O Campo 'Nome' é obrigatório!" />
+						
+				</h:panelGrid>
+				<div class="btn-opcoes">
+					<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
+						<p:commandButton value="Salvar"
+							actionListener="#{acessoBean.salvar}"
+							update=":mensagem :formCadastro:painel :formListagem:tabela"
+							oncomplete="PF('dialogo').hide();" />
+						<p:commandButton value="Fechar" oncomplete="PF('dialogo').hide();" />
+					</h:panelGrid>
+				</div>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+</html>

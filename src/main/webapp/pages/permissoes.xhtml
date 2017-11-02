@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="title">Titulo da Página</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form id="form">
+			<p:panel header="Permissões Disponíveis">
+				<p:dataTable emptyMessage="Nenhum registro encontrado."
+					paginator="true" id="tabelaDisponivel"
+					value="#{permissoesBean.listaSubMenus}" var="subMenu" rows="3">
+
+					<p:column headerText="Descrição" sortBy="#{subMenu.descricao}"
+						filterBy="#{subMenu.descricao}">
+						<h:outputText value="#{subMenu.descricao}" />
+					</p:column>
+					<p:column headerText="Caminho">
+						<h:outputText value="#{subMenu.caminho}" />
+					</p:column>
+					<p:column headerText="Acesso" sortBy="#{subMenu.acesso.descricao}"
+						filterBy="#{subMenu.acesso.descricao}">
+						<h:outputText value="#{subMenu.acesso.descricao}" />
+					</p:column>
+					<p:column headerText="Opções" styleClass="ui-table-width">
+						<p:commandButton icon="ui-icon-plus"
+							actionListener="#{permissoesBean.adicionar}"
+							update=":mensagem :form:tabelaLiberadas">
+							<f:attribute name="selecionado" value="#{subMenu}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+			
+			<p:panel header="Permissões Liberadas">
+				<p:dataTable emptyMessage="Nenhum registro encontrado."
+					paginator="true" id="tabelaLiberadas"
+					value="#{permissoesBean.itens}" var="itens" rows="3">
+
+					<p:column headerText="Descrição">
+						<h:outputText value="#{itens.subMenu.descricao}" />
+					</p:column>
+					<p:column headerText="Caminho">
+						<h:outputText value="#{itens.subMenu.caminho}" />
+					</p:column>
+					<p:column headerText="Acesso">
+						<h:outputText value="#{itens.subMenu.acesso.descricao}" />
+					</p:column>
+					<p:column headerText="Opções" styleClass="ui-table-width">
+						<p:commandButton icon="ui-icon-minus"
+							actionListener="#{permissoesBean.remover}"
+							update=":form:tabelaLiberadas">
+							<f:attribute name="selecionado" value="#{itens}" />
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+
+			<p:commandButton value="Finalizar Permissões" style="margin-top: 7px;left: 40%;"
+				actionListener="#{permissoesBean.finalizar}" update=":mensagem :formulario:painel"
+				oncomplete="PF('dialogo').show();">
+
+			</p:commandButton>
+		</h:form>
+
+		<p:dialog header="Finalizar Permissões" widgetVar="dialogo" draggable="false" 
+		resizable="false" modal="true" appendTo="@(body)" showEffect="slide" responsive="true">
+			<h:form id="formulario">
+				<h:panelGrid columns="2" id="painel">
+
+					<p:outputLabel for="tipoUsuario" value="Tipo de Usuário:" />
+					<p:selectOneMenu id="tipoUsuario"
+						value="#{permissoesBean.permissoes.tipoUsuario}"
+						converter="omnifaces.SelectItemsConverter" filter="true" required="true"
+						requiredMessage="O campo 'Tipo de Usuário' é obrigatório">
+						<f:selectItem noSelectionOption="true"
+							itemLabel="Selecione um tipo de usuário" />
+						<f:selectItems value="#{permissoesBean.listaTipoUsuarios}"
+							var="tipoUsuarios" itemValue="#{tipoUsuarios}"
+							itemLabel="#{tipoUsuarios.descricao}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" style="margin: 0 auto;">
+					<p:commandButton value="Salvar" actionListener="#{permissoesBean.salvar}"
+					update=":mensagem :form:tabelaDisponivel :form:tabelaLiberadas :formulario:painel"
+					oncomplete="PF('dialogo').hide();" />
+				<p:commandButton value="Cancelar" oncomplete="PF('dialogo').hide();" />
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+
+	</ui:define>
+</ui:composition>
+</html>

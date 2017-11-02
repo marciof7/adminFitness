@@ -27,14 +27,14 @@ public class AutenticacaoListener implements PhaseListener {
 				AutenticacaoBean autenticacaoBean = Faces.getSessionAttribute("autenticacaoBean");
 
 				if (autenticacaoBean == null) {
-					Faces.redirect("http://localhost:8082/Adminfitness/pages/login.xhtml");
+					Faces.redirect("/Adminfitness/pages/login.xhtml");
 					return;
 				}
 
 				Usuario usuario = autenticacaoBean.getUsuarioLogado();
 
 				if (usuario == null) {
-					Faces.redirect("http://localhost:8082/Adminfitness/pages/login.xhtml");
+					Faces.redirect("/Adminfitness/pages/login.xhtml");
 					return;
 				}
 			}

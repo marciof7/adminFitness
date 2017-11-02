@@ -19,22 +19,28 @@
 		</a>
 
 		<ul class="topbar-menu fadeInDown animated">
-			<li class="profile-item">
-				<a href="#"> 
-					<i class=" topbar-icon fa fa-fw fa-black-tie	
+			<li class="profile-item"><a href="#"> <i
+					class=" topbar-icon fa fa-fw fa-black-tie	
 						 "></i>
 					<div class="profile-info">
-						<span class="topbar-item-name profile-name" style="text-transform: uppercase; font-weight: bold; margin-top: -8px;">Supervisor</span>
+						<span class="topbar-item-name profile-name"
+							style="text-transform: uppercase; font-weight: bold; margin-top: -4px;">
+							<h:outputLabel
+								value="#{autenticacaoBean.usuarioLogado.tipo.descricao}" />
+						</span>
 					</div>
 			</a></li>
-			<li class="profile-item"><a href="#">
-			<i class="fa fa-user-circle-o fa-lg"></i>
+			<li class="profile-item"><a href="#"> <i
+					class="fa fa-user-circle-o fa-lg"></i>
 					<div class="profile-info">
 						<span class="topbar-item-name profile-name"
-							style="text-transform: uppercase; position: relative; top: -4px;">Usuário Logado</span>
+							style="text-transform: uppercase; position: relative; top: -4px;">
+							<h:outputLabel
+								value="#{autenticacaoBean.usuarioLogado.pessoa.nome}" />
+						</span>
 					</div>
 			</a>
-				
+
 				<ul class="animated">
 					<div class="pointer"></div>
 					<li role="menuitem"><a href="#"> <i
@@ -45,10 +51,17 @@
 					</a></li>
 				</ul></li>
 
-			<li><a href="#" title="Sair"> <i class="topbar-icon fa fa-fw fa-sign-out"></i>
-					<span class="topbar-item-name profile-name">Sair</span>
-			</a></li>
+			<li><h:form>
+					<h:commandLink action="#{autenticacaoBean.sair}">
+						<i class="topbar-icon fa fa-fw fa-sign-out"></i>
+						<span class="topbar-item-name profile-name"
+							style="text-transform: uppercase; position: relative; top: -4px; color: #fff; font-weight: bold">
+							<h:outputLabel value="Sair" />
+						</span>
+					</h:commandLink>
+				</h:form></li>
 		</ul>
+
 	</div>
 
 </ui:composition>

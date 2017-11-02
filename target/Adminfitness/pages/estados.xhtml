@@ -30,7 +30,7 @@
 					<p:column headerText="Sigla" sortBy="#{estado.sigla}">
 						<h:outputText value="#{estado.sigla}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{estadoBean.editar}"
 							update=":mensagem :formCadastro:painel"

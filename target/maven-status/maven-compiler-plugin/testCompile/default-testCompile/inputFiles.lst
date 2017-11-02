@@ -1,5 +1,5 @@
-/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/PessoaDAOTest.java
-/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/CidadeDAOTest.java
-/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/ClienteDAOTest.java
-/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/dao/EstadoDAOTest.java
-/home/vinicios/dev_line/AdminFitness/src/test/java/br/com/msantos/adminfitness/util/HibernateUtilTest.java
+/home/msantos/git/adminFitness/src/test/java/br/com/msantos/adminfitness/dao/PessoaDAOTest.java
+/home/msantos/git/adminFitness/src/test/java/br/com/msantos/adminfitness/dao/CidadeDAOTest.java
+/home/msantos/git/adminFitness/src/test/java/br/com/msantos/adminfitness/dao/EstadoDAOTest.java
+/home/msantos/git/adminFitness/src/test/java/br/com/msantos/adminfitness/dao/ClienteDAOTest.java
+/home/msantos/git/adminFitness/src/test/java/br/com/msantos/adminfitness/util/HibernateUtilTest.java

@@ -31,7 +31,7 @@
 						filterBy="#{cidade.estado.nome}">
 						<h:outputText value="#{cidade.estado.nome}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{cidadeBean.editar}"
 							update=":mensagem :formCadastro:painel"

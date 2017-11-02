@@ -12,7 +12,7 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/db_adminfitness</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">root</property>
+		<property name="connection.password">shinzo21</property>
 
 		<!-- Pool de Conexões -->
 		<property name="connection.pool_size">1</property>
@@ -30,18 +30,22 @@
 		<property name="show_sql">true</property>
 
 		<!-- Cria as tabelas do banco de dados (Create / Update / Validate) -->
-		<property name="hbm2ddl.auto">validate</property>
+		<property name="hbm2ddl.auto">update</property>
 
 		<!-- Mapeamento das Entidades -->
+		<mapping class="br.com.msantos.adminfitness.domain.Acesso" />
 		<mapping class="br.com.msantos.adminfitness.domain.Aula" />
+		<mapping class="br.com.msantos.adminfitness.domain.CategoriaMuscular" />
 		<mapping class="br.com.msantos.adminfitness.domain.Cidade" />
 		<mapping class="br.com.msantos.adminfitness.domain.Cliente" />
 		<mapping class="br.com.msantos.adminfitness.domain.Estado" />
 		<mapping class="br.com.msantos.adminfitness.domain.Exercicios" />
 		<mapping class="br.com.msantos.adminfitness.domain.Funcionario" />
+		<mapping class="br.com.msantos.adminfitness.domain.ItemPermissoes" />
+		<mapping class="br.com.msantos.adminfitness.domain.SubMenu" />
+		<mapping class="br.com.msantos.adminfitness.domain.Permissoes" />
 		<mapping class="br.com.msantos.adminfitness.domain.Pessoa" />
-		<mapping class="br.com.msantos.adminfitness.domain.TipoFuncionario" />
-		<mapping class="br.com.msantos.adminfitness.domain.TipoMusculos" />
+		<mapping class="br.com.msantos.adminfitness.domain.TipoUsuario" />
 		<mapping class="br.com.msantos.adminfitness.domain.Usuario" />
 
 	</session-factory>

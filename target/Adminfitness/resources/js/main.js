@@ -25,3 +25,9 @@ PrimeFaces.locales['pt_BR'] = {
     allDayText : 'Todo o Dia'
 };
 
+$(document).on("click", "li", function() {
+	 var id = console.log($(this).text());
+	 
+	});
+
+

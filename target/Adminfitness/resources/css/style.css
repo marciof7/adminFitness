@@ -25,12 +25,13 @@ body .ui-inputfield.ui-state-focus{
 .layout-wrapper .topbar .logo img{
 	width: 60px;
 	margin-top: -1px;
+	margin-left: 45px;
 }
 
 /* LOGO-TEXTO */
 .layout-wrapper .topbar .app-name{
 	height: auto;
-	margin-left: 0px;
+	margin-left: 100px;
 	
 }
 
@@ -173,6 +174,15 @@ body .ui-dialog .ui-dialog-buttonpane, body .ui-dialog .ui-dialog-footer {
 .ui-outputlabel .ui-outputlabel-rfi{
 	color: red;
 }
+/* BUTTON */
+body .ui-dialog .ui-dialog-buttonpane, body .ui-dialog .ui-dialog-footer{
+	text-align: center !important;
+}
+
+.ui-dialog .ui-dialog-buttonpane{
+	padding: 2px !important;
+}
+
 
 /* CHECK-BOX */
 .ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled{
@@ -201,6 +211,27 @@ body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon {
 .ui-fileupload-content.ui-widget-content.ui-corner-bottom{
 	display: none;
 	
+}
+
+.ui-table-width{
+	width: 10%;
+}
+
+.ui-column-filter{
+	padding: 1px !important;
+}
+
+.ui-paginator.ui-paginator-bottom{
+	display: none;
+}
+
+i.topbar-icon.fa.fa-fw.fa-sign-out{
+	font-size: 25px;
+	color: #fff;
+}
+.btn-finalizar{
+	margin-top: 7px;
+	left: 45%;
 }
 
 

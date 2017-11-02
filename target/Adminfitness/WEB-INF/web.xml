@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebApp_ID" version="3.1">
-
+<web-app id="WebApp_ID" version="3.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 	<display-name>Adminfitness</display-name>
+
+	<!-- Página Principal -->
+	<welcome-file-list>
+		<welcome-file>pages/login.xhtml</welcome-file>
+	</welcome-file-list>
+
+	<!-- Configuração do FacesConfig -->
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>/WEB-INF/faces-config.xml</param-value>
+	</context-param>
 
 	<!-- Estágio do Projeto -->
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
+	
+	<!-- Carregamento do Hibernate -->
+	<listener>
+		<listener-class>br.com.msantos.adminfitness.util.HibernateContexto</listener-class>
+	</listener> 
 
-	<!-- Tema do PrimeFaces -->
-
-
-	<!-- Definição do Mecanismo de Upload -->
-
-	<!-- Configuração do JSF -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -27,9 +35,4 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
-
-	<!-- Carregamento do Hibernate -->
-	<listener>
-		<listener-class>br.com.msantos.adminfitness.util.HibernateContexto</listener-class>
-	</listener>
 </web-app>

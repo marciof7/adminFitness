@@ -10,10 +10,10 @@ import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
 
+import br.com.msantos.adminfitness.dao.CategoriaMuscularDAO;
 import br.com.msantos.adminfitness.dao.ExerciciosDAO;
-import br.com.msantos.adminfitness.dao.TipoMusculosDAO;
+import br.com.msantos.adminfitness.domain.CategoriaMuscular;
 import br.com.msantos.adminfitness.domain.Exercicios;
-import br.com.msantos.adminfitness.domain.TipoMusculos;
 
 @SuppressWarnings("serial")
 @ManagedBean
@@ -22,7 +22,7 @@ public class ExerciciosBean implements GenericBean, Serializable {
 
 	private Exercicios exercicio;
 	private List<Exercicios> listaExercicios;
-	private List<TipoMusculos> tipoMusculos;
+	private List<CategoriaMuscular> ListaCategoriaMuscular;
 
 	public Exercicios getExercicio() {
 		return exercicio;
@@ -40,12 +40,12 @@ public class ExerciciosBean implements GenericBean, Serializable {
 		this.listaExercicios = listaExercicios;
 	}
 
-	public List<TipoMusculos> getTipoMusculos() {
-		return tipoMusculos;
+	public List<CategoriaMuscular> getListaCategoriaMuscular() {
+		return ListaCategoriaMuscular;
 	}
-
-	public void setTipoMusculos(List<TipoMusculos> tipoMusculos) {
-		this.tipoMusculos = tipoMusculos;
+	
+	public void setListaCategoriaMuscular(List<CategoriaMuscular> listaCategoriaMuscular) {
+		ListaCategoriaMuscular = listaCategoriaMuscular;
 	}
 
 	@Override
@@ -68,8 +68,8 @@ public class ExerciciosBean implements GenericBean, Serializable {
 
 			exercicio = new Exercicios();
 
-			TipoMusculosDAO tipoMusculosDAO = new TipoMusculosDAO();
-			tipoMusculos = tipoMusculosDAO.listarOrdenado("musculo");
+			CategoriaMuscularDAO categoriaMuscularDAO = new CategoriaMuscularDAO();
+			ListaCategoriaMuscular = categoriaMuscularDAO.listarOrdenado("descricao");
 
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Erro ao tentar gerar um novo exercício!");
@@ -101,8 +101,8 @@ public class ExerciciosBean implements GenericBean, Serializable {
 		try {
 			exercicio = (Exercicios) evento.getComponent().getAttributes().get("selecionado");
 
-			TipoMusculosDAO tipoMusculosDAO = new TipoMusculosDAO();
-			tipoMusculos = tipoMusculosDAO.listarOrdenado("musculo");
+			CategoriaMuscularDAO categoriaMuscularDAO = new CategoriaMuscularDAO();
+			ListaCategoriaMuscular = categoriaMuscularDAO.listarOrdenado("descricao");
 
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Erro ao tentar editar o exercício!");

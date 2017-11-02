@@ -7,36 +7,44 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<h:outputStylesheet library="fontAwesome/css" name="font-awesome.min.css"/>
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<h:outputStylesheet  library="css" name="theme.css" />
-<h:outputStylesheet  library="fontAwesome/css" name="font-awesome.css" />
-<h:outputStylesheet  library="css" name="components.css" />
-<h:outputScript library="jquery" name="jquery.js"/>
-<h:outputScript library="js" name="core.js"/>
-<h:outputScript library="js" name="components.js"/>
-<h:outputScript library="jquery" name="jquery-plugins.js" />
-<h:outputStylesheet library="charts" name="charts.css" />
-<h:outputScript library="charts" name="charts.js"/>
-<h:outputStylesheet library="schedule" name="schedule.css" />
-<h:outputScript library="moment" name="moment.js"/>
-<h:outputStylesheet library="css" name="nanoscroller.css" />
-<h:outputStylesheet library="css" name="animate.css" />
-<h:outputStylesheet library="css" name="ripple.css" />
-<h:outputStylesheet library="css" name="layout-blue.css" />
-<h:outputStylesheet library="css" name="dashboard.css" />
-<h:outputStylesheet library="css" name="form.css" />
-<h:outputStylesheet library="css" name="style.css" />
-<h:outputStylesheet library="inputswitch" name="inputswitch.css" />
-<h:outputStylesheet library="keyboard" name="keyboard.css" />
-<h:outputScript library="inputswitch" name="inputswitch.js"/>
-<h:outputScript library="keyboard" name="keyboard.js"/>
-<h:outputScript>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+   	<p:link rel="icon" type="img/x-icon" href="./logo-mini.ico"/>
+	<h:outputStylesheet library="fontAwesome/css"
+		name="font-awesome.min.css" />
+	<link type="text/css" rel="stylesheet"
+		href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<h:outputStylesheet library="css" name="theme.css" />
+	<h:outputStylesheet library="fontAwesome/css" name="font-awesome.css" />
+	<h:outputStylesheet library="css" name="components.css" />
+	<h:outputScript library="jquery" name="jquery.js" />
+	<h:outputScript library="js" name="core.js" />
+	<h:outputScript library="js" name="components.js" />
+	<h:outputScript library="jquery" name="jquery-plugins.js" />
+	<h:outputStylesheet library="charts" name="charts.css" />
+	<h:outputScript library="charts" name="charts.js" />
+	<h:outputStylesheet library="schedule" name="schedule.css" />
+	<h:outputScript library="moment" name="moment.js" />
+	<h:outputStylesheet library="css" name="nanoscroller.css" />
+	<h:outputStylesheet library="css" name="animate.css" />
+	<h:outputStylesheet library="css" name="ripple.css" />
+	<h:outputStylesheet library="css" name="layout-blue.css" />
+	<h:outputStylesheet library="css" name="dashboard.css" />
+	<h:outputStylesheet library="css" name="form.css" />
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="menu.css" />
+	<h:outputStylesheet library="inputswitch" name="inputswitch.css" />
+	<h:outputStylesheet library="keyboard" name="keyboard.css" />
+	<h:outputScript library="inputswitch" name="inputswitch.js" />
+	<h:outputScript library="keyboard" name="keyboard.js" />
+
+	<h:outputScript>
 			function fMasc(objeto,mascara) {
 				obj=objeto
 				masc=mascara
@@ -87,16 +95,18 @@
 				num=num.replace(/\D/g,"")
 				return num
 			}
+			
+			
 		</h:outputScript>
-<h:outputScript>
+	<h:outputScript>
     if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';PrimeFaces.settings.projectStage='Development';}
 </h:outputScript>
-<h:outputScript library="js" name="main.js"/>
-<title><ui:insert name="title">Dashboard</ui:insert></title>
-<h:outputScript library="js" name="nanoscroller.js"/>
-<h:outputScript library="js" name="layout.js"/>
-<h:outputScript library="js" name="ripple.js"/>
-<h:outputScript>
+	<h:outputScript library="js" name="main.js" />
+	<title><ui:insert name="title">Dashboard</ui:insert></title>
+	<h:outputScript library="js" name="nanoscroller.js" />
+	<h:outputScript library="js" name="layout.js" />
+	<h:outputScript library="js" name="ripple.js" />
+	<h:outputScript>
                
                function skinBar() {
                    this.cfg.shadow = false;
@@ -132,20 +142,20 @@
 
 <h:body class="main-body">
 	<div class="layout-wrapper">
-	
+
 		<ui:insert name="topo">
 			<ui:include src="/templates/topo.xhtml" />
 		</ui:insert>
-		
+
 		<ui:insert name="menu">
 			<ui:include src="/templates/menu.xhtml" />
 		</ui:insert>
-		
+
 		<div class="layout-main">
 			<div class="layout-main-content">
 				<div class="ui-g dashboard">
-					<div class="ui-g-12 ui-md-12 ui-lg-12 ">
-					<p:growl id="mensagem"/>
+					<div class="ui-g-11 ui-md-11 ui-lg-11" style="margin-left: 90px;">
+						<p:growl id="mensagem" />
 						<ui:insert name="conteudo">
 							<ui:include src="/templates/conteudo.xhtml" />
 						</ui:insert>
@@ -153,11 +163,11 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<ui:insert name="rodape">
 			<ui:include src="/templates/rodape.xhtml" />
 		</ui:insert>
-	
+
 	</div>
 </h:body>
 

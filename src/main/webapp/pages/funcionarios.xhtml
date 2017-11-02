@@ -39,7 +39,7 @@
 					<p:column headerText="Telefone">
 						<h:outputText value="#{funcionario.pessoa.telefone}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{funcionarioBean.editar}"
 							update=":mensagem :formCadastro:painel1 :formCadastro:painel2 :formCadastro:painel3 :formCadastro:painel4 :formCadastro:painel5 :formCadastro:painel6 :formCadastro:painel7"

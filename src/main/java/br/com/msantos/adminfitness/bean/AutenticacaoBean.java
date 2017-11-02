@@ -52,12 +52,25 @@ public class AutenticacaoBean {
 				return;
 			}
 			
-			Faces.redirect("./pages/principal.xhtml");
+			Faces.redirect("http://localhost:8082/Adminfitness/pages/principal.xhtml");
 			
 		} catch (IOException erro) {
 			erro.printStackTrace();
 			Messages.addGlobalError(erro.getMessage());
 		}
 	}
+	
+	public void sair(){
+		try{
+			
+		usuarioLogado = null;
+		Faces.redirect("./pages/login.xhtml");
+		
+		}catch (IOException erro) {
+			erro.printStackTrace();
+			Messages.addGlobalError(erro.getMessage());
+		}
+	}
+	
 
 }

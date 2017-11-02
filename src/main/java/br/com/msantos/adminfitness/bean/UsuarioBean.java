@@ -95,7 +95,6 @@ public class UsuarioBean implements GenericBean, Serializable {
 	@Override
 	public void novo() {
 		showElement();
-		System.out.println("showElement");
 		
 		try {
 			usuario = new Usuario();
@@ -143,7 +142,6 @@ public class UsuarioBean implements GenericBean, Serializable {
 	@Override
 	public void editar(ActionEvent evento) {
 		hideElement();
-		System.out.println("hideElement");
 		
 		usuario = (Usuario) evento.getComponent().getAttributes().get("selecionado");
 		String senha = usuario.getSenha();

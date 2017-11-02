@@ -1,0 +1,31 @@
+.layout-wrapper .layout-sidebar{
+	width: 160px;
+}
+body .ui-panelmenu .ui-panelmenu-header{
+	background: #F5F5F5 !important;
+}
+
+body .ui-panelmenu .ui-panelmenu-header a{
+	color: #031634 !important;
+}
+.ui-icon-triangle-1-e:before{
+	content: '' !important;
+}
+
+body .ui-panelmenu .ui-panelmenu-header .ui-icon{
+margin-top: -8px !important;
+}
+
+body .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link.ui-state-hover{
+	background: #757575 !important;
+	color: #fff !important;
+}
+body .ui-panelmenu .ui-panelmenu-header.ui-state-active{
+	background: #031634 !important;
+	color: #fff !important;
+}
+body .ui-panelmenu .ui-panelmenu-header.ui-state-active a{
+	color: #fff !important;
+	text-shadow: none !important;
+}
+

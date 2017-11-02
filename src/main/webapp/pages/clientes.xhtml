@@ -42,7 +42,7 @@
 					<p:column headerText="Telefone">
 						<h:outputText value="#{cliente.pessoa.telefone}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{clienteBean.editar}"
 							update=":mensagem :formCadastro:painel1 :formCadastro:painel2 :formCadastro:painel3 :formCadastro:painel4 :formCadastro:painel5 :formCadastro:painel6"
@@ -179,11 +179,7 @@
 						id="fone" maxlength="14" size="10"
 						value="#{clienteBean.pessoa.telefone}" required="true"
 						requiredMessage="O Campo 'Telefone' é obrigatório!" />
-
 				</h:panelGrid>
-				<p:outputLabel value="Foto:" for="foto"/>
-				<p:fileUpload id="foto" mode="advanced"/>
-				
 
 				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
 					<p:commandButton value="Salvar"

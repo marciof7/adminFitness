@@ -33,7 +33,7 @@
 						<h:outputText
 							value="#{tipoUsuario.descricao}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{tipoUsuarioBean.editar}"
 							update=":mensagem :formCadastro:painel"

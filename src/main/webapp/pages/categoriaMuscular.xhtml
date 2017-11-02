@@ -31,7 +31,7 @@
 					<p:column headerText="Descrição" sortBy="#{categoriaMuscular.descricao}">
 						<h:outputText value="#{categoriaMuscular.descricao}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{categoriaMuscularBean.editar}"
 							update=":mensagem :formCadastro:painel :formListagem:tabela"

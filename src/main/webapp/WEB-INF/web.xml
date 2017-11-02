@@ -3,13 +3,18 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 	<display-name>Adminfitness</display-name>
-	
+
+	<!-- Página Principal -->
+	<welcome-file-list>
+		<welcome-file>pages/login.xhtml</welcome-file>
+	</welcome-file-list>
+
 	<!-- Configuração do FacesConfig -->
 	<context-param>
 		<param-name>javax.faces.CONFIG_FILES</param-name>
 		<param-value>/WEB-INF/faces-config.xml</param-value>
 	</context-param>
-	
+
 	<!-- Estágio do Projeto -->
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -19,7 +24,7 @@
 	<!-- Carregamento do Hibernate -->
 	<listener>
 		<listener-class>br.com.msantos.adminfitness.util.HibernateContexto</listener-class>
-	</listener>
+	</listener> 
 
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>

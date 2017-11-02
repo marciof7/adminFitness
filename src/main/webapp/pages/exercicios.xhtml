@@ -27,11 +27,11 @@
 						filterBy="#{exercicio.descricao}">
 						<h:outputText value="#{exercicio.descricao}" />
 					</p:column>
-					<p:column headerText="Tipo de Músculo" sortBy="#{exercicio.tipoMusculos.musculo}"
-						filterBy="#{exercicio.tipoMusculos.musculo}">
-						<h:outputText value="#{exercicio.tipoMusculos.musculo}" />
+					<p:column headerText="Tipo de Músculo" sortBy="#{exercicio.categoriaMuscular.descricao}"
+						filterBy="#{exercicio.categoriaMuscular.descricao}">
+						<h:outputText value="#{exercicio.categoriaMuscular.descricao}" />
 					</p:column>
-					<p:column headerText="Opções">
+					<p:column headerText="Opções" styleClass="ui-table-width">
 						<p:commandButton icon="ui-icon-pencil" title="Editar"
 							actionListener="#{exerciciosBean.editar}"
 							update=":mensagem :formCadastro:painel"
@@ -69,16 +69,16 @@
 						value="#{exerciciosBean.exercicio.descricao}" required="true"
 						requiredMessage="O Campo 'Descrição' é obrigatório!" />
 
-					<p:outputLabel for="tipoMusculo" value="Tipo de Músculo" />
-					<p:selectOneMenu id="tipoMusculo" filter="true"
+					<p:outputLabel for="categoriaMuscular" value="Categoria Muscular" />
+					<p:selectOneMenu id="categoriaMuscular" filter="true"
 						style="width:70px; min-width:170px !important;"
-						value="#{exerciciosBean.exercicio.tipoMusculos}"
+						value="#{exerciciosBean.exercicio.categoriaMuscular}"
 						converter="omnifaces.SelectItemsConverter" required="true"
 						requiredMessage="O Campo 'Tipo de Músculo' é obrigatório!">
 						<f:selectItem noSelectionOption="true"
 							itemLabel="Selecione um tipo de músculo" />
-						<f:selectItems value="#{exerciciosBean.tipoMusculos}" var="musculo"
-							itemValue="#{musculo}" itemLabel="#{musculo.musculo}" />
+						<f:selectItems value="#{exerciciosBean.listaCategoriaMuscular}" var="listaCategoriaMuscular"
+							itemValue="#{listaCategoriaMuscular}" itemLabel="#{listaCategoriaMuscular.descricao}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
 				<h:panelGrid columns="2" style="margin: 0 auto; padding-top:5px;">
